@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { default as pageTitle } from 'ember-cli-page-title';
+import pageTitle from 'ember-cli-page-title';
 
 @pageTitle ({
   title: 'Contact Us'
