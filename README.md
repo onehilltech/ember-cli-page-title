@@ -39,6 +39,26 @@ export default class ContactRoute extends Route {
 If the destination route does not have a page title, then the current page
 title remains.
 
+### Using templates in titles
+
+The `@pageTitle` decorator uses [Mustache](https://github.com/janl/mustache.js) to enable 
+usage of template parameters in the title. The decorator replaces template parameters with 
+values from the corresponding route's controller.
+
+```javascript
+import Route from '@ember/routing/route';
+import { default as pageTitle } from 'ember-cli-page-title';
+
+@pageTitle ('Person - {{model.name}}')
+export default class PersonRoute extends Route {
+  model () {
+    return {
+      name: 'John Doe'
+    } 
+  }
+}
+```
+
 Contributing
 ------------------------------------------------------------------------------
 
