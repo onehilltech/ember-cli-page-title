@@ -13,11 +13,22 @@ function applyPageTitleDecorator (Route, options) {
   // method. It will set the title on the page, and then pass control to the original
   // activate method.
 
+  function identity (x) { return x }
+
   Route.prototype.setup = function (...args) {
     // Pass control to the original setup function.
     let ret = setupFunction.call (this, ...args);
 
+    // Since we can't have a local configuration for Mustache, we have to replace
+    // the global escape to disable it. After we are done processing the title,
+    // we can restore the original escape function.
+
+    let origEscape = Mustache.escape;
+    Mustache.escape = identity;
+
     this.pageTitle.title = Mustache.render (title, this.controller);
+
+    Mustache.escape = origEscape;
 
     return ret;
   };

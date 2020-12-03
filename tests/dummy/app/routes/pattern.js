@@ -5,7 +5,7 @@ import pageTitle from 'ember-cli-page-title';
 export default class PatternRoute extends Route {
   model () {
     return {
-      name: 'John Doe'
+      name: 'John & Jane'
     }
   }
 }
