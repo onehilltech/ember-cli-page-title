@@ -1,7 +1,7 @@
 ember-cli-page-title
 ==============================================================================
 
-[Short description of the addon.]
+ember-cli add-on for adding a title to a page
 
 
 Compatibility
@@ -23,8 +23,21 @@ ember install ember-cli-page-title
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+This add-on allows each `Route` to have its own page title. You just simply
+use the `@pageTitle` decorator.
 
+```javascript
+import Route from '@ember/routing/route';
+import { default as pageTitle } from 'ember-cli-page-title';
+
+@pageTitle ('Contact Us')
+export default class ContactRoute extends Route {
+
+}
+```
+
+If the destination route does not have a page title, then the current page
+title remains.
 
 Contributing
 ------------------------------------------------------------------------------
@@ -35,4 +48,4 @@ See the [Contributing](CONTRIBUTING.md) guide for details.
 License
 ------------------------------------------------------------------------------
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the [Apache-2.0 License](LICENSE.md).
